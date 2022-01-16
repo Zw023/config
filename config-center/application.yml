@@ -1,0 +1,33 @@
+server:
+    port: 8901
+
+spring:
+    application:
+        name: config-server
+    cloud:
+        config:
+            server:
+                # Spring Cloud Config 的配置中心默认采用Git来存储配置信息（也可以使用数据库、svn等作为存储）
+                git:
+                    # 配置存储配置信息的Git仓库，git私服
+                    uri: ZY@C001:/home/zy/mygit
+                    username: ZY
+                    password: 66666
+                    
+                    # 配置存储配置信息的Git仓库，github
+                    #uri: https://github.com/Zw023/config.git
+                    #username: Zw023
+                    #password: Zw2830833294
+                    
+                    # 开启启动时直接从git获取配置
+#                    clone-on-start: true
+                    # 配置文件所在根目录，可以写多个，用“,”分隔
+                    search-paths: config-center
+
+# 如果不集成eureka配置中心，此处可以不配置
+eureka:
+    client:
+        register-with-eureka: true
+        fetch-registry: true
+        service-url:
+            defaultZone: http://localhost:8002/eureka
