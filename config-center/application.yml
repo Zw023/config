@@ -1,8 +1,6 @@
-server:
-    port: 8901
 
 spring:
-    application:
+    app:
         name: config-server
     cloud:
         config:
